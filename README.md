@@ -14,7 +14,7 @@ Data was cleaned and wrangled with:
   + numpy
   + matplotlib
   + seaborn
-  + CSV
+  + csv  
 Visualizations created with:
 * RStudio
 * Main Libraries:
