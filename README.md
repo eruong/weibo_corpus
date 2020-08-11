@@ -21,7 +21,7 @@ Visualizations created with:
   + tidyverse
 
 Usage of SnowNLP, a Python library inspired by Textblob applied to Chinese text, builds off of the following sources:  
-(1) [Beginner’s Guide to Sentiment Analysis for Simplified Chinese using SnowNLP]https://towardsdatascience.com/beginners-guide-to-sentiment-analysis-for-simplified-chinese-using-snownlp-ce88a8407efb  
+(1) [Beginner’s Guide to Sentiment Analysis for Simplified Chinese using SnowNLP](https://towardsdatascience.com/beginners-guide-to-sentiment-analysis-for-simplified-chinese-using-snownlp-ce88a8407efb)  
 (2) [Python & SnowNLP: Sentiment Analysis for the Chinese Language](https://medium.com/analytics-vidhya/python-snownlp-sentiment-analysis-for-the-chinese-language-8d9cafd0447d)
 
 ![alt text](visualizations/topic_avg.png)
