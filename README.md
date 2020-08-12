@@ -29,4 +29,4 @@ I created a framework where provided the entire Leiden Weibo Corpus, keywords ca
 ## Example Results
 I have included one such visualization below comparing average sentiment of male and female users regarding five topics: the Olympics, Diaoyu/Senkaku Islands, gender types, perspectives on success, and government approval. Sentiment as calculated using the SnowNLP library ranges from 0 to 1 (negative to positive). Panels represent a particular province or territory in China each of which has five stacked barplots for each of the five topics considered. 
 
-![alt text](visualizations/topic_avg.png)
+![alt text](visualizations/topic_avg.png)  
