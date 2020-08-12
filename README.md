@@ -27,6 +27,6 @@ Usage of SnowNLP, a Python library inspired by Textblob applied to Chinese text,
 I created a framework where provided the entire Leiden Weibo Corpus, keywords can be inputted such that subsets of the Leiden Weibo Corpus could be created for more focused analysis. This framework only performs successfully after extensive cleaning is run beforehand such as changing data types, accounting for the encoding of Chinese characters, errors in data parsing, removing extraneous characters, etc. Additional data cleaning is run only on the subsetted data to optimize efficiency. This includes recoding geographic data and calculating sentiment. The subsetted data sets are then written as CSV files for further visualization and analysis utilizing R/RStudio. 
 
 ## Example Results
-I have included one such visualization below comparing average sentiment of male and female users regarding five topics: the Olympics, Diaoyu/Senkaku Islands, gender types, perspectives on success, and government approval.
+I have included one such visualization below comparing average sentiment of male and female users regarding five topics: the Olympics, Diaoyu/Senkaku Islands, gender types, perspectives on success, and government approval. Sentiment as calculated using the SnowNLP library ranges from 0 to 1 (negative to positive). Panels represent a particular province or territory in China each of which has five stacked barplots for each of the five topics considered. 
 
 ![alt text](visualizations/topic_avg.png)
