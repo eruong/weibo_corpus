@@ -1,4 +1,6 @@
 library(tidyverse)
+library(kableExtra)
+library(magick)
 
 # read all data sets
 olympics <- read.csv("C:\\Users\\hobbs\\OneDrive - Pomona College\\Y3\\RAISE\\weibo_corpus\\topic_data\\lwc_olympics.csv", 
@@ -26,14 +28,23 @@ government <- government %>% mutate(Topic="Government")
 
 df <- do.call("rbind", list(olympics, diaoyu, gtypes, success, government))
 
-# save visualization
+# saving visualizations
+# average sentiment by topic
 topic_avg <- df %>% mutate(Gender=factor(Gender)) %>% 
   group_by(Province, Gender, Topic) %>% 
+  
+  # calculate average sentiment
   summarize(`Average Sentiment` = mean(Sentiment)) %>% 
-  ggplot(aes(x=Topic, y=`Average Sentiment`, fill=Gender)) + 
+  
+  # specify axis and fill
+  ggplot(aes(x=Topic, y=`Average Sentiment`, fill=Gender)) +
+  
+  # stacked barplot
   geom_bar(position="stack", stat="identity") + 
   coord_flip() + 
   facet_wrap(~Province) + 
+  
+  # title/text/theme adjustments
   ggtitle("Average Sentiment by Topic") +
   theme(text = element_text(size=40), 
         axis.title=element_text(size=50),
@@ -49,3 +60,25 @@ topic_avg <- df %>% mutate(Gender=factor(Gender)) %>%
 
 # write visualization to PNG
 ggsave("topic_avg.png", topic_avg, height = 30, width = 35)
+
+# calculating summary statistics
+df %>% mutate(Gender=factor(Gender)) %>% 
+  
+  # grouping topics by international/domestic
+  mutate(Politics=recode(Topic,
+                         "Olympics"="International",
+                         "Diaoyu"="International",
+                         "Gender Types"="Domestic",
+                         "Success"="Domestic",
+                         "Government"="Domestic")) %>% 
+  group_by(Gender, Politics) %>% 
+  
+  # calculate average sentiment
+  summarize(`Average Sentiment`=mean(Sentiment)) %>% 
+  
+  # save summary statistics in table and style
+  kable(align = "lccrr", caption = "Note: Gender is coded as 0 for female and 1 for male.") %>% 
+  kable_styling() %>% 
+  
+  # save summary statistics as image
+  as_image(, width = NULL, height = NULL, file = "domVSint.png")
